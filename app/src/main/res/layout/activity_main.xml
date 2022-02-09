@@ -38,7 +38,7 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.ice.good.ui.view.InputItemLayout
+    <com.ice.good.lib.ui.InputItemLayout
         android:id="@+id/input_item_username"
         android:layout_width="match_parent"
         android:layout_height="48dp"
@@ -53,7 +53,16 @@
         app:topLineAppearance="@style/lineAppearance"
         app:layout_constraintTop_toBottomOf="@id/tv"/>
 
-    <com.ice.good.ui.view.banner.YBanner
+    <Button
+        android:id="@+id/btn_tab"
+        android:text="  tab  "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        app:layout_constraintTop_toBottomOf="@id/input_item_username"
+        app:layout_constraintLeft_toLeftOf="parent"/>
+
+    <com.ice.good.lib.ui.banner.YBanner
         android:id="@+id/ybanner"
         app:layout_constraintTop_toTopOf="parent"
         android:layout_width="match_parent"
@@ -62,7 +71,7 @@
         app:loop="true"
         />
 
-    <com.ice.good.ui.view.IconFontTextView
+    <com.ice.good.lib.ui.icfont.IconFontTextView
         android:id="@+id/action_back"
         android:layout_width="45dp"
         android:layout_height="45dp"
@@ -71,5 +80,47 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         android:textSize="24sp"/>
+
+    <androidx.appcompat.widget.AppCompatCheckedTextView
+        app:layout_constraintTop_toBottomOf="@id/ybanner"
+        android:id="@+id/channel_wx_pay"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_40"
+        android:layout_marginTop="@dimen/dp_10"
+        android:background="@color/color_C1B"
+        android:drawableLeft="@mipmap/ic_wx_pay"
+        android:drawableRight="@drawable/selector_payway_checked"
+        android:drawablePadding="@dimen/dp_5"
+        android:gravity="center_vertical"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:text="微信支付"
+        android:textColor="@color/color_333"
+        android:textSize="12sp" />
+
+    <com.ice.good.lib.ui.amount.AmountView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/channel_wx_pay"
+        app:layout_constraintLeft_toLeftOf="parent"
+        />
+
+    <Button
+        android:id="@+id/btn_fps"
+        android:text="  fps  "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        app:layout_constraintTop_toBottomOf="@id/input_item_username"
+        app:layout_constraintLeft_toRightOf="@id/btn_tab"/>
+
+    <Button
+        android:id="@+id/btn_crash"
+        android:text="  crash  "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        app:layout_constraintTop_toBottomOf="@id/input_item_username"
+        app:layout_constraintLeft_toRightOf="@id/btn_fps"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

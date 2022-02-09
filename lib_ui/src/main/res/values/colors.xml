@@ -34,4 +34,14 @@
 
     <color name="color_9fa">#9FA3A4</color>
     <color name="color_929">#929697</color>
+
+    <!--    TabBottom-->
+    <color name="tabBottomDefaultColor">#ff656667</color>
+    <color name="tabBottomTintColor">#ffd44949</color>
+
+    <color name="headView_normal_color">@android:color/black</color>
+    <color name="searchView_normal_color">@android:color/black</color>
+    <color name="hi_tabtop_selected_color">@android:color/holo_red_dark</color>
+    <color name="hi_tabtop_line_normal_color">#00ffffff</color>
+    <color name="hi_tabtop_dividing_line">#e9e9e9</color>
 </resources>

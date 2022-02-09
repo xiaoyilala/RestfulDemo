@@ -1,5 +1,4 @@
-
 include ':app'
-include ':lib_restful'
+include ':lib_lib'
 include ':lib_ui'
 include ':lib_common'
