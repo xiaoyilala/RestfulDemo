@@ -7,12 +7,11 @@ import android.util.AttributeSet
 import android.util.TypedValue
 import android.view.Gravity
 import android.view.View
-import android.view.ViewGroup
 import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.RelativeLayout
 import androidx.annotation.StringRes
-import com.ice.good.lib.common.ResUtil
+import com.ice.good.lib.lib.util.ResUtil
 import com.ice.good.lib.ui.R
 import com.ice.good.lib.ui.icfont.IconFontButton
 import com.ice.good.lib.ui.icfont.IconFontTextView

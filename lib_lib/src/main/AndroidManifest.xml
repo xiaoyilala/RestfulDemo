@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.ice.good.lib.lib">
-
+    <application>
+        <activity
+            android:name=".permission.PermissionUtil$PermissionActivity"
+            android:autoRemoveFromRecents="true"
+            android:configChanges="keyboardHidden|orientation|screenSize|locale|screenLayout|smallestScreenSize"
+            android:screenOrientation="portrait"
+            android:theme="@style/PermissionActivity"></activity>
+    </application>
 </manifest>

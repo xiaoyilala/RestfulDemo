@@ -8,7 +8,7 @@ import android.widget.FrameLayout
 import android.widget.ImageView
 import android.widget.LinearLayout
 import androidx.annotation.DrawableRes
-import com.ice.good.lib.common.DisplayUtil
+import com.ice.good.lib.lib.util.DisplayUtil
 import com.ice.good.lib.ui.R
 
 class CircleIndicator @JvmOverloads constructor(context: Context, attributeSet: AttributeSet?=null, defStyleAttr:Int=0)

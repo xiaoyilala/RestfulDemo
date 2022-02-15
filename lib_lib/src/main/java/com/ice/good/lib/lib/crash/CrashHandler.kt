@@ -7,9 +7,8 @@ import android.os.Environment
 import android.os.Process
 import android.os.StatFs
 import android.text.format.Formatter
-import android.util.Log
-import com.ice.good.lib.common.ActivityManager
-import com.ice.good.lib.common.AppGlobals
+import com.ice.good.lib.lib.util.ActivityManager
+import com.ice.good.lib.lib.util.AppGlobals
 import com.ice.good.lib.lib.BuildConfig
 import com.ice.good.lib.lib.log.YLog
 import java.io.File

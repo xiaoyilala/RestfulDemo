@@ -2,7 +2,7 @@ package com.ice.good.lib.lib.restful
 
 import android.util.Log
 import com.ice.good.lib.lib.cache.Storage
-import com.ice.good.lib.common.MainHandler
+import com.ice.good.lib.lib.util.MainHandler
 import com.ice.good.lib.lib.executor.GoodExecutor
 import com.ice.good.lib.lib.restful.annotation.CacheStrategy
 

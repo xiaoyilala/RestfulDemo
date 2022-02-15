@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 
-import com.ice.good.lib.common.DisplayUtil;
+import com.ice.good.lib.lib.util.DisplayUtil;
 
 
 /**

@@ -1,6 +1,6 @@
 package com.ice.good.lib.lib.crash
 
-import com.ice.good.lib.common.AppGlobals
+import com.ice.good.lib.lib.util.AppGlobals
 import org.devio.`as`.proj.libbreakpad.NativeCrashHandler
 import java.io.File
 

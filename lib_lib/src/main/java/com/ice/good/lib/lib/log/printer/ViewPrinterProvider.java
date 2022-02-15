@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.ice.good.lib.common.DisplayUtil;
+import com.ice.good.lib.lib.util.DisplayUtil;
 import com.ice.good.lib.lib.log.view.SwagTextView;
 
 public class ViewPrinterProvider {

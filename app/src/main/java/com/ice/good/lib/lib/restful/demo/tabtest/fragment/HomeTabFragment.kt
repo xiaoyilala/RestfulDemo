@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import com.ice.good.lib.lib.restful.demo.R
-import com.ice.good.lib.lib.restful.demo.base.BaseFragment
+import com.ice.good.lib.ui.item.BaseFragment
 import kotlinx.android.synthetic.main.fragment_home_tab.*
 
 class HomeTabFragment: BaseFragment() {

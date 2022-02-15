@@ -11,7 +11,7 @@ import android.widget.Scroller;
 import androidx.annotation.NonNull;
 
 
-import com.ice.good.lib.common.DisplayUtil;
+import com.ice.good.lib.lib.util.DisplayUtil;
 import com.ice.good.lib.ui.tab.common.ITabLayout;
 
 import java.util.ArrayList;

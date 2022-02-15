@@ -4,14 +4,17 @@
 
     <application
         android:name=".MyApp"
-        android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:allowBackup="false"
         android:theme="@style/Theme.RestfulDemo">
         <activity
             android:name="com.ice.good.lib.lib.restful.demo.tabtest.TabActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.ice.good.lib.lib.restful.demo.refreshtest.RefreshTestActivity"
             android:exported="false" />
         <activity
             android:name="com.ice.good.lib.lib.restful.demo.MainActivity"
@@ -22,6 +25,20 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.fileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths">
+
+            </meta-data>
+        </provider>
+
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />

@@ -13,7 +13,7 @@ import android.widget.EditText
 import android.widget.LinearLayout
 import android.widget.RelativeLayout
 import android.widget.TextView
-import com.ice.good.lib.common.MainHandler
+import com.ice.good.lib.lib.util.MainHandler
 import com.ice.good.lib.ui.R
 import com.ice.good.lib.ui.icfont.IconFontTextView
 

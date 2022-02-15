@@ -15,8 +15,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.ice.good.lib.common.DisplayUtil;
-import com.ice.good.lib.common.ViewUtil;
+import com.ice.good.lib.lib.util.DisplayUtil;
+import com.ice.good.lib.lib.util.ViewUtil;
 import com.ice.good.lib.ui.R;
 import com.ice.good.lib.ui.tab.common.ITabLayout;
 

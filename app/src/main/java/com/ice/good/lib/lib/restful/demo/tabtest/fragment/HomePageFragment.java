@@ -13,7 +13,7 @@ import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import com.ice.good.lib.lib.restful.demo.R;
-import com.ice.good.lib.lib.restful.demo.base.BaseFragment;
+import com.ice.good.lib.ui.item.BaseFragment;
 import com.ice.good.lib.ui.tab.bottom.BottomTabLayout;
 import com.ice.good.lib.ui.tab.common.ITabLayout;
 import com.ice.good.lib.ui.tab.top.TopTabInfo;

@@ -3,7 +3,7 @@ package com.ice.good.lib.lib.cache
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.ice.good.lib.common.AppGlobals
+import com.ice.good.lib.lib.util.AppGlobals
 
 @Database(entities = [Cache::class], version = 1, exportSchema = true)
 abstract class CacheDatabase: RoomDatabase() {

@@ -1,34 +1,37 @@
 package com.ice.good.lib.lib.restful.demo
 
+import android.app.AlertDialog
+import android.content.DialogInterface
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.KeyEvent
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
-import com.google.gson.Gson
-import com.ice.good.lib.common.loadUrl
+import androidx.fragment.app.DialogFragment
+import com.ice.good.lib.ability.YAbility
+import com.ice.good.lib.ability.push.MyPreferences
+import com.ice.good.lib.lib.util.loadUrl
 import com.ice.good.lib.lib.executor.GoodExecutor
 import com.ice.good.lib.lib.fps.FpsMonitor
 import com.ice.good.lib.lib.log.YLog
 import com.ice.good.lib.lib.log.YLogManager
-import com.ice.good.lib.lib.log.base.LogConfig
-import com.ice.good.lib.lib.log.printer.ConsolePrinter
-import com.ice.good.lib.lib.log.printer.FilePrinter
 import com.ice.good.lib.lib.log.printer.ViewPrinter
 import com.ice.good.lib.lib.restful.demo.http.ApiFactory
 import com.ice.good.lib.lib.restful.demo.http.TestApi
 import com.ice.good.lib.lib.restful.Callback
 import com.ice.good.lib.lib.restful.Response
 import com.ice.good.lib.lib.restful.demo.http.LoginModel
+import com.ice.good.lib.lib.restful.demo.refreshtest.RefreshTestActivity
 import com.ice.good.lib.lib.restful.demo.tabtest.TabActivity
 import com.ice.good.lib.ui.banner.core.BannerData
 import com.ice.good.lib.ui.banner.indicator.NumIndicator
 import com.ice.good.lib.ui.banner.YBanner
 import kotlinx.android.synthetic.main.activity_main.*
-import java.util.logging.LogManager
+import java.lang.Exception
 
 //ripple,Space,merge,include,ViewStub
 class MainActivity : AppCompatActivity() {
@@ -115,9 +118,52 @@ class MainActivity : AppCompatActivity() {
             })
         }
 
-        val array1 = Array<Int>(2, { 1 })
-        val array2 = Array<Int>(2, { 2 })
-        val ints = array1 + array2
-        YLog.d("ints", "ints: "+ints)
+        btn_refresh.setOnClickListener {
+            startActivity(Intent(this@MainActivity, RefreshTestActivity::class.java))
+        }
+
+        if (hasAgreedAgreement()) {
+
+        } else {
+            showAgreementDialog()
+        }
+    }
+
+    private fun hasAgreedAgreement(): Boolean {
+        return MyPreferences.getInstance(this).hasAgreePrivacyAgreement()
+    }
+
+    private fun showAgreementDialog() {
+        val builder = AlertDialog.Builder(this)
+        builder.setTitle(R.string.agreement_title)
+        builder.setMessage(R.string.agreement_msg)
+        builder.setPositiveButton(R.string.agreement_ok,
+            DialogInterface.OnClickListener { dialog, which ->
+                dialog.dismiss()
+                //用户点击隐私协议同意按钮后，初始化PushSDK
+                MyPreferences.getInstance(applicationContext).setAgreePrivacyAgreement(true)
+                YAbility.initPushSDK(this@MainActivity.application, null)
+            })
+        builder.setNegativeButton(R.string.agreement_cancel,
+            DialogInterface.OnClickListener { dialog, which ->
+                dialog.dismiss()
+                finish()
+            })
+        builder.create().show()
+    }
+
+    override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
+        if(keyCode == KeyEvent.KEYCODE_VOLUME_DOWN){
+            if(BuildConfig.DEBUG){
+                try {
+                    val clazz = Class.forName("com.ice.good.lib.debug.DebugToolDialogFragment")
+                    val dialog:DialogFragment = clazz.getConstructor().newInstance() as DialogFragment
+                    dialog.show(supportFragmentManager, "debug_tool")
+                }catch (e:Exception){
+                    e.printStackTrace()
+                }
+            }
+        }
+        return super.onKeyDown(keyCode, event)
     }
 }

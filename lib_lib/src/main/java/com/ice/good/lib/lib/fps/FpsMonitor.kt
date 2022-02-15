@@ -10,8 +10,8 @@ import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.WindowManager
 import android.widget.TextView
-import com.ice.good.lib.common.ActivityManager
-import com.ice.good.lib.common.AppGlobals
+import com.ice.good.lib.lib.util.ActivityManager
+import com.ice.good.lib.lib.util.AppGlobals
 import com.ice.good.lib.lib.R
 import java.text.DecimalFormat
 
@@ -69,7 +69,7 @@ object FpsMonitor {
 
             })
 
-            ActivityManager.instance.addFrontBackCallback(object :ActivityManager.FrontBackCallback{
+            ActivityManager.instance.addFrontBackCallback(object : ActivityManager.FrontBackCallback{
                 override fun onChanged(front: Boolean) {
                     if (front) {
                         play()

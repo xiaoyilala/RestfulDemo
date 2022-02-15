@@ -5,8 +5,8 @@ import android.graphics.Color
 import android.graphics.drawable.Drawable
 import android.util.AttributeSet
 import android.util.TypedValue
-import com.ice.good.lib.common.DisplayUtil
-import com.ice.good.lib.common.ResUtil
+import com.ice.good.lib.lib.util.DisplayUtil
+import com.ice.good.lib.lib.util.ResUtil
 import com.ice.good.lib.ui.R
 
 internal object AttrsParse {
