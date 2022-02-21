@@ -12,6 +12,7 @@ import android.widget.EditText
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.fragment.app.DialogFragment
+import androidx.lifecycle.Observer
 import com.ice.good.lib.ability.YAbility
 import com.ice.good.lib.ability.push.MyPreferences
 import com.ice.good.lib.lib.util.loadUrl
@@ -20,13 +21,18 @@ import com.ice.good.lib.lib.fps.FpsMonitor
 import com.ice.good.lib.lib.log.YLog
 import com.ice.good.lib.lib.log.YLogManager
 import com.ice.good.lib.lib.log.printer.ViewPrinter
+import com.ice.good.lib.lib.permission.PermissionConstants
+import com.ice.good.lib.lib.permission.PermissionUtil
 import com.ice.good.lib.lib.restful.demo.http.ApiFactory
 import com.ice.good.lib.lib.restful.demo.http.TestApi
 import com.ice.good.lib.lib.restful.Callback
 import com.ice.good.lib.lib.restful.Response
 import com.ice.good.lib.lib.restful.demo.http.LoginModel
+import com.ice.good.lib.lib.restful.demo.refreshtest.HiRefreshDemoActivity
 import com.ice.good.lib.lib.restful.demo.refreshtest.RefreshTestActivity
 import com.ice.good.lib.lib.restful.demo.tabtest.TabActivity
+import com.ice.good.lib.lib.restful.demo.xy.XYTextActivity
+import com.ice.good.lib.lib.util.showToast
 import com.ice.good.lib.ui.banner.core.BannerData
 import com.ice.good.lib.ui.banner.indicator.NumIndicator
 import com.ice.good.lib.ui.banner.YBanner
@@ -120,6 +126,33 @@ class MainActivity : AppCompatActivity() {
 
         btn_refresh.setOnClickListener {
             startActivity(Intent(this@MainActivity, RefreshTestActivity::class.java))
+        }
+
+        btn_refresh_hi.setOnClickListener {
+            startActivity(Intent(this@MainActivity, HiRefreshDemoActivity::class.java))
+        }
+
+        btn_xy.setOnClickListener {
+            startActivity(Intent(this@MainActivity, XYTextActivity::class.java))
+        }
+
+        btn_sm.setOnClickListener {
+            PermissionUtil.permission(PermissionConstants.CAMERA)
+                .callback(object : PermissionUtil.SimpleCallback {
+                    override fun onGranted() {
+                        YAbility.openScanActivity(this@MainActivity, Observer {
+                            val split = it.split(":")
+                            if(split!=null && split.size>1){
+                                split[0].trim().also { tv_name.setText(split[0].trim()) }
+                                split[1].trim().also { tv_pw.setText(split[1].trim()) }
+                            }
+                        })
+                    }
+
+                    override fun onDenied() {
+                        showToast("你拒绝使用相机权限,扫码功能无法继续使用.")
+                    }
+                }).request()
         }
 
         if (hasAgreedAgreement()) {

@@ -45,5 +45,7 @@ ext {
             hilt_android_compiler: "com.google.dagger:hilt-android-compiler:2.28-alpha",
             hilt_compiler        : "androidx.hilt:hilt-compiler:1.0.0-alpha01",
             //hilt--end
+
+            lottieVersion        : 'com.airbnb.android:lottie:3.3.0'
     ]
 }

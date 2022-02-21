@@ -90,7 +90,7 @@ public class RefreshLayout extends FrameLayout implements IRefresh {
             int childTop = child.getTop();
             if(state == RefreshState.STATE_REFRESH){
                 head.layout(0, overView.refreshMinHeight-head.getMeasuredHeight(), right, overView.refreshMinHeight);
-                child.layout(0, overView.refreshMinHeight, right, overView.refreshMinHeight+head.getMeasuredHeight());
+                child.layout(0, overView.refreshMinHeight, right, overView.refreshMinHeight+child.getMeasuredHeight());
             }else{
                 head.layout(0, childTop - head.getMeasuredHeight(), right, childTop);
                 child.layout(0, childTop, right, childTop + child.getMeasuredHeight());
@@ -103,7 +103,6 @@ public class RefreshLayout extends FrameLayout implements IRefresh {
             }
             YLog.it("RefreshLayout", "onLayout head-bottom:" + head.getBottom());
         }
-        super.onLayout(changed, left, top, right, bottom);
     }
 
     private void recover(int dis) {
@@ -121,7 +120,7 @@ public class RefreshLayout extends FrameLayout implements IRefresh {
         public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY) {
             //distanceY 两次onScroll回调的距离
             //横向滑动，或刷新被禁止则不处理
-            if(Math.abs(distanceX) > Math.abs(distanceY) || (refreshListener!=null && !refreshListener.enableRefresh())){
+            if(Math.abs(distanceX) > Math.abs(distanceY) || refreshListener!=null && !refreshListener.enableRefresh()){
                 return false;
             }
 
@@ -193,6 +192,7 @@ public class RefreshLayout extends FrameLayout implements IRefresh {
                 //头部开始显示
                 overView.onVisible();
                 overView.setState(RefreshState.STATE_VISIBLE);
+                state = RefreshState.STATE_VISIBLE;
             }
             head.offsetTopAndBottom(offsetY);
             child.offsetTopAndBottom(offsetY);
@@ -213,7 +213,7 @@ public class RefreshLayout extends FrameLayout implements IRefresh {
             overView.onScroll(head.getBottom(), overView.refreshMinHeight);
         }
 
-        return false;
+        return true;
     }
 
     private void refresh(){
@@ -255,7 +255,7 @@ public class RefreshLayout extends FrameLayout implements IRefresh {
             removeView(this.overView);
         }
         this.overView = overView;
-        LayoutParams params = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
+        LayoutParams params = new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
         addView(this.overView, 0, params);
     }
 
@@ -293,6 +293,8 @@ public class RefreshLayout extends FrameLayout implements IRefresh {
             removeCallbacks(this);
             lastY = 0;
             finish = false;
+            //dx： 水平方向的偏移量，正数会将内容向左滚动。
+            //dy： 垂直方向的偏移量，正数会将内容向上滚动。
             scroller.startScroll(0,0,0, dis, 300);
             post(this);
         }

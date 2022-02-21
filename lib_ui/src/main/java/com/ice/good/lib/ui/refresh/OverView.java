@@ -42,7 +42,7 @@ public abstract class OverView extends FrameLayout {
     }
 
     protected void preInit(){
-        refreshMinHeight = DisplayUtil.dp2px(66);
+        refreshMinHeight = DisplayUtil.dp2px(88);
         init();
     }
 

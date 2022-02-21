@@ -20,7 +20,7 @@ object ScanResult {
             val ssidNumber = wifiConnectionInfo.getSsidNumber()
             val cipherMode = wifiConnectionInfo.getCipherMode()
 
-            scanResult = ssidNumber
+            scanResult = "$ssidNumber : $password";
         } else {
             scanResult = hmsScan.originalValue
         }

@@ -17,6 +17,12 @@
             android:name="com.ice.good.lib.lib.restful.demo.refreshtest.RefreshTestActivity"
             android:exported="false" />
         <activity
+            android:name="com.ice.good.lib.lib.restful.demo.refreshtest.HiRefreshDemoActivity"
+            android:exported="false" />
+        <activity
+            android:name="com.ice.good.lib.lib.restful.demo.xy.XYTextActivity"
+            android:exported="false" />
+        <activity
             android:name="com.ice.good.lib.lib.restful.demo.MainActivity"
             android:exported="true">
             <intent-filter>

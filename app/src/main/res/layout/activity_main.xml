@@ -99,11 +99,21 @@
         android:textSize="12sp" />
 
     <com.ice.good.lib.ui.amount.AmountView
+        android:id="@+id/av"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/channel_wx_pay"
         app:layout_constraintLeft_toLeftOf="parent"
         />
+
+    <Button
+        android:id="@+id/btn_sm"
+        android:text="  扫码  "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        app:layout_constraintTop_toBottomOf="@id/av"
+        app:layout_constraintLeft_toLeftOf="parent"/>
 
     <Button
         android:id="@+id/btn_fps"
@@ -130,5 +140,22 @@
         android:layout_margin="8dp"
         app:layout_constraintTop_toBottomOf="@id/input_item_username"
         app:layout_constraintLeft_toRightOf="@id/btn_crash"/>
+    <Button
+        android:id="@+id/btn_refresh_hi"
+        android:text="  hirefresh  "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        app:layout_constraintTop_toBottomOf="@id/input_item_username"
+        app:layout_constraintLeft_toRightOf="@id/btn_refresh"/>
+
+    <Button
+        android:id="@+id/btn_xy"
+        android:text="  xy  "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        app:layout_constraintTop_toBottomOf="@id/btn_refresh_hi"
+        app:layout_constraintLeft_toRightOf="@id/btn_refresh"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
