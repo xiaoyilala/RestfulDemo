@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/tab_name"
+    android:layout_width="144px"
+    android:layout_height="60px"
+    android:gravity="center"
+    android:textColor="#05C1AE"
+    android:textSize="28px" />

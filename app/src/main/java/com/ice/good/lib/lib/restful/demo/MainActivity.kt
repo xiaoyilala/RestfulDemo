@@ -28,6 +28,7 @@ import com.ice.good.lib.lib.restful.demo.http.TestApi
 import com.ice.good.lib.lib.restful.Callback
 import com.ice.good.lib.lib.restful.Response
 import com.ice.good.lib.lib.restful.demo.http.LoginModel
+import com.ice.good.lib.lib.restful.demo.knowledge.FitSystemActivity
 import com.ice.good.lib.lib.restful.demo.refreshtest.HiRefreshDemoActivity
 import com.ice.good.lib.lib.restful.demo.refreshtest.RefreshTestActivity
 import com.ice.good.lib.lib.restful.demo.tabtest.TabActivity
@@ -36,6 +37,7 @@ import com.ice.good.lib.lib.util.showToast
 import com.ice.good.lib.ui.banner.core.BannerData
 import com.ice.good.lib.ui.banner.indicator.NumIndicator
 import com.ice.good.lib.ui.banner.YBanner
+import com.ice.good.lib.ui.switchtab.TabUtil
 import kotlinx.android.synthetic.main.activity_main.*
 import java.lang.Exception
 
@@ -61,6 +63,9 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, TabActivity::class.java)
             startActivity(intent)
         }
+
+        val tabInfoList = TabUtil.getTabInfoList(this);
+        stl.addTabs(tabInfoList);
 
         val nameTv = findViewById<EditText>(R.id.tv_name)
         val pwTv = findViewById<EditText>(R.id.tv_pw)
@@ -134,6 +139,14 @@ class MainActivity : AppCompatActivity() {
 
         btn_xy.setOnClickListener {
             startActivity(Intent(this@MainActivity, XYTextActivity::class.java))
+        }
+
+        btn_fit_system.setOnClickListener {
+            startActivity(Intent(this@MainActivity, FitSystemActivity::class.java))
+        }
+
+        btn_transform.setOnClickListener {
+            startActivity(Intent(this@MainActivity, TestTransformActivity::class.java))
         }
 
         btn_sm.setOnClickListener {

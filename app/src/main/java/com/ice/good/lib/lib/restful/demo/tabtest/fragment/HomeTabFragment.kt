@@ -40,7 +40,7 @@ class HomeTabFragment: BaseFragment() {
          * view不可见时，返回整个view坐标
          *
          * view有可见区域时
-         * getLocalVisibleRect 以view左上角为原点，返回可见区域坐标
+         * getLocalVisibleRect 以该view左上角为原点，返回可见区域坐标
          * view不可见时
          * getLocalVisibleRect 以父布局左上角为原点，返回整个view坐标
          * */

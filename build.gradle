@@ -1,4 +1,5 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
+// 在根 build.gradle 进行引用的好处就是所有的子 build.gradle 都能够获取到这些扩展属性
 apply from:"dependency.gradle"
 buildscript {
     repositories {
@@ -9,12 +10,13 @@ buildscript {
         google()
         mavenCentral()
         maven {url 'https://developer.huawei.com/repo/'}
+        maven {url("./repo")}//plugin_hello中自定义的发布地址
     }
     dependencies {
         classpath "com.android.tools.build:gradle:4.0.1"
         classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.6.10'
         classpath 'com.huawei.agconnect:agcp:1.6.0.300'
-
+        classpath 'com.ice.plugin.hello:hello:0.0.1'//plugin_hello中自定义的
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
@@ -32,6 +34,26 @@ allprojects {
     }
 }
 
+//应用于所有子项目
+subprojects {project->
+
+}
+
 task clean(type: Delete) {
     delete rootProject.buildDir
+}
+
+afterEvaluate { project->
+    //收集所有project的task集合
+    Map<Project, Set<Task>> allTasks = project.getAllTasks(true)
+    allTasks.entrySet().each {projTasks->
+        projTasks.value.each {task->
+            println(task.getName())
+            for(Object o:task.getDependsOn()){
+                println("DependOn----> "+o.toString())
+            }
+            println("---------------------------------")
+        }
+    }
+
 }

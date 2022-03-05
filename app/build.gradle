@@ -3,6 +3,7 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 apply plugin: 'com.huawei.agconnect'
+apply plugin: 'com.ice.plugin.hello.greeting'
 
 def ext =rootProject.ext
 def dependency =rootProject.ext.dependencies
@@ -76,3 +77,5 @@ dependencies {
     implementation dependency.lottieVersion
 
 }
+
+//apply plugin: 'tinypng'
